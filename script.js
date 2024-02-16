@@ -1,7 +1,7 @@
 const itemForm = document.getElementById('item-form')
 const itemInput = document.getElementById('item-input')
 const itemList = document.getElementById('item-list')
-
+const clearAll = document.getElementById('clear')
 const addItem = e => {
     e.preventDefault()
 
@@ -36,4 +36,14 @@ const createDiv = shoppingItem =>{
 
 }
 
+const removeItem = e => {
+    // console.log(e.target.tagName)
+    // console.log(e.target.parentElement)
+    if (e.target.tagName === "I"){
+        e.target.parentElement.parentElement.remove();
+    }
+}
+const emptyList = () =>  itemList.innerHTML = " " 
 itemForm.addEventListener('submit',addItem)
+itemList.addEventListener('click',removeItem)
+clearAll.addEventListener('click',emptyList)
